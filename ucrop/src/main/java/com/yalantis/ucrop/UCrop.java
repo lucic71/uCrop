@@ -252,6 +252,19 @@ public class UCrop {
         return (Throwable) result.getSerializableExtra(EXTRA_ERROR);
     }
 
+    /**
+     * Check if result should be handled in onActivityResult.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     * @return true if should be handled
+     *         false otherwise
+     */
+    public static boolean shouldHandleResult(int requestCode, int resultCode, Intent data) {
+        return requestCode == REQUEST_CROP && resultCode == Activity.RESULT_OK && data != null;
+    }
+
 
     /**
      * Class that helps to setup advanced configs that are not commonly used.
